@@ -32,7 +32,7 @@ jobs:
           DEV_SF_ROLE: ${{ secrets.DEV_SF_ROLE }}
           DEV_SF_WAREHOUSE: ${{ secrets.DEV_SF_WAREHOUSE }}
           DEV_SF_DATABASE: ${{ secrets.DEV_SF_DATABASE }}
-          SNOWFLAKE_PASSWORD: ${{ secrets.SF_PASSWORD }}
+          SF_PASSWORD: ${{ secrets.SF_PASSWORD }}
         run: |
           echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
           python --version
@@ -40,4 +40,4 @@ jobs:
           pip install schemachange
           
           echo "Step 2: Running schemachange"
-          schemachange -f $GITHUB_WORKSPACE/migrations -a $SF_ACCOUNT -u $SF_USERNAME -r $DEV_SF_ROLE -w $DEV_SF_WAREHOUSE -d $DEV_SF_DATABASE -c $DEV_SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY 
+          schemachange -f $GITHUB_WORKSPACE/snowflake-quaries -a $SF_ACCOUNT -u $SF_USERNAME -r $DEV_SF_ROLE -w $DEV_SF_WAREHOUSE -d $DEV_SF_DATABASE -c $DEV_SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY 
