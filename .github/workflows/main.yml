@@ -6,7 +6,7 @@ on:
     branches:
       - main
     paths:
-      - '**'
+      - 'migrations/**'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -29,10 +29,10 @@ jobs:
         env:
           SF_ACCOUNT: ${{ secrets.SF_ACCOUNT }}
           SF_USERNAME: ${{ secrets.SF_USERNAME }}
-          DEV_SF_ROLE: ${{ secrets.DEV_SF_ROLE }}
-          DEV_SF_WAREHOUSE: ${{ secrets.DEV_SF_WAREHOUSE }}
-          DEV_SF_DATABASE: ${{ secrets.DEV_SF_DATABASE }}
-          SF_PASSWORD: ${{ secrets.SF_PASSWORD }}
+          SF_ROLE: ${{ secrets.DEV_SF_ROLE }}
+          SF_WAREHOUSE: ${{ secrets.DEV_SF_WAREHOUSE }}
+          SF_DATABASE: ${{ secrets.DEV_SF_DATABASE }}
+          SNOWFLAKE_PASSWORD: ${{ secrets.SF_PASSWORD }}
         run: |
           echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
           python --version
