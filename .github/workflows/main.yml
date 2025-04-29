@@ -8,7 +8,7 @@ on:
     - main
 
    paths:
-    - 'migrations/**' # location
+    - 'snowflake-queries/**' # location
 
  workflow_dispatch:
 
